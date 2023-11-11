@@ -1,27 +1,21 @@
 class Solution {
-private:
-    int sqrtHelper(int x, int left, int right) {
-        if (left > right) {
-            return right;
-        }
-        
-        int mid = left + (right - left) / 2;
-
-        if (mid <= x / mid) {
-            // If mid is less than or equal to the square root of x, search in the right half.
-            return sqrtHelper(x, mid + 1, right);
-        } else {
-            // If mid is greater than the square root of x, search in the left half.
-            return sqrtHelper(x, left, mid - 1);
-        }
-    }
-
 public:
     int mySqrt(int x) {
-        if (x == 0 || x == 1) {
-            return x;
+        if (x == 0) return 0;
+        if (x == 1) return 1;
+        int low = 0;
+        int high = x;
+        int mid;
+        while (low <= high) {
+            mid = low + (high - low) / 2;
+            if (x / mid == mid) return mid;
+            else if (x / mid > mid) {
+                if (x / (mid + 1) < mid + 1) return mid;
+                else low = mid + 1;
+            } else {
+                high = mid - 1;
+            }
         }
-
-        return sqrtHelper(x, 1, x);
+        return mid;
     }
 };
