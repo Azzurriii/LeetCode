@@ -11,6 +11,7 @@ private:
             else
                 return searchHelper(nums, target, mid + 1, right);
         }
+        //If the target is smaller than all elements of the array.
         return left;
     }
 public:
