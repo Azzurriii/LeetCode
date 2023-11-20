@@ -1,4 +1,6 @@
-struct Solution {
+class Solution {
+public:
+    //Kancute voz
     int garbageCollection(vector<string>& garbage, vector<int>& travel) {
         int res{};
         int ig = 0, ip = 0, im = 0;
