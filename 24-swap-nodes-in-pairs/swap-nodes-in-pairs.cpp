@@ -30,8 +30,6 @@ public:
             current = current->next->next;
         }
 
-        ListNode* newHead = dummy->next;
-        delete dummy;
-        return newHead;
+        return dummy->next;
     }
 };
