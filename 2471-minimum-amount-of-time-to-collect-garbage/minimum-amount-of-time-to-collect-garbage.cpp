@@ -1,27 +1,18 @@
-class Solution {
-public:
+struct Solution {
     int garbageCollection(vector<string>& garbage, vector<int>& travel) {
-        // Store the prefix sum in travel itself.
-        for (int i = 1; i < travel.size(); i++) {
-            travel[i] = travel[i - 1] + travel[i];
+        int res{};
+        int ig = 0, ip = 0, im = 0;
+        for (int i = 0; auto& s : garbage) {
+            res += s.size();
+            if (s.find('G') != s.npos) ig = i;
+            if (s.find('P') != s.npos) ip = i;
+            if (s.find('M') != s.npos) im = i;
+            ++i;
         }
-        
-        // Map to store garbage type to the last house index.
-        unordered_map<char, int> garbageLastPos;
-        int ans = 0;
-        for (int i = 0; i < garbage.size(); i++) {
-            for (char c : garbage[i]) {
-                garbageLastPos[c] = i;
-            }
-            ans +=  garbage[i].size();
-        }
-        
-        string garbageTypes = "MPG";
-        for (char c : garbageTypes) {
-            // No travel time is required if the last house is at index 0.
-            ans += (garbageLastPos[c] == 0 ? 0 : travel[garbageLastPos[c] - 1]);
-        }
-        
-        return ans;
+        return res + accumulate(begin(travel), begin(travel) + ig, 0)
+                   + accumulate(begin(travel), begin(travel) + ip, 0)
+                   + accumulate(begin(travel), begin(travel) + im, 0);
     }
 };
+
+auto speedup = cin.tie(NULL)->sync_with_stdio(false);
