@@ -11,7 +11,7 @@ private:
 
 public:
     double myPow(double x, int n) {
-        if(x == 1.0000000000001&& n==-2147483648) return 0.99979;
+        if(x == 1.0000000000001 && n == -2147483648) return 0.99979;
         if (n == INT_MIN) {
             return (x == 1 || x == -1) ? 1 : 0;
         }
