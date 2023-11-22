@@ -21,6 +21,6 @@ public:
             res += rangeSumBST(root->left, low, high) + rangeSumBST(root->right, low, high);
             return res;
         }
-
+        auto speedup = cin.tie(NULL)->sync_with_stdio(false);
     }
 };
