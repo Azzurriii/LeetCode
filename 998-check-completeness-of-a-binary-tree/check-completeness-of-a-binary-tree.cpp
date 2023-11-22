@@ -12,22 +12,25 @@
 class Solution {
 public:
     bool isCompleteTree(TreeNode* root) {
-        bool isNullBefore = false;
         queue<TreeNode*> q;
         q.push(root);
+        bool nullFound = false;
 
-        while(!q.empty())
-        {
+        while (!q.empty()) {
             TreeNode* curNode = q.front();
             q.pop();
 
-            if(!curNode)
-                isNullBefore = true;
-            else{
-                if(isNullBefore)
+            if (curNode) {
+                if (nullFound) {
+                    // If a null node has been found earlier, this is not a complete tree
                     return false;
+                }
+
                 q.push(curNode->left);
                 q.push(curNode->right);
+            } else {
+                // Mark that a null node has been found
+                nullFound = true;
             }
         }
 
