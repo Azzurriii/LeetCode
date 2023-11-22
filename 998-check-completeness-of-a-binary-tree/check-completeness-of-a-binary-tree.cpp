@@ -22,14 +22,13 @@ public:
 
             if (curNode) {
                 if (nullFound) {
-                    // If a null node has been found earlier, this is not a complete tree
                     return false;
                 }
 
                 q.push(curNode->left);
                 q.push(curNode->right);
-            } else {
-                // Mark that a null node has been found
+            } 
+            else {
                 nullFound = true;
             }
         }
