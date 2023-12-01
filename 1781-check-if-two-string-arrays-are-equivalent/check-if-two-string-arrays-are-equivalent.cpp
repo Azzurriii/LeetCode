@@ -14,3 +14,4 @@ public:
         return strcmp(concatWord1.c_str(), concatWord2.c_str()) == 0;
     }
 };
+auto speedup = cin.tie(NULL) -> sync_with_stdio(false);
