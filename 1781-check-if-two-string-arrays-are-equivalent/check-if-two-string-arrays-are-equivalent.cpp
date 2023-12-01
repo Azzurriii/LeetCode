@@ -1,17 +1,15 @@
 class Solution {
 public:
     bool arrayStringsAreEqual(vector<string>& word1, vector<string>& word2) {
-       string concatWord1;
-        for (const string& str : word1) {
-            concatWord1 += str;
-        }
+        string s1 = "";
+        string s2 = "";
 
-        string concatWord2;
-        for (const string& str : word2) {
-            concatWord2 += str;
-        }
+        for(const string& s : word1)
+            s1 += s;
+        for(const string& s : word2)
+            s2 += s;
 
-        return strcmp(concatWord1.c_str(), concatWord2.c_str()) == 0;
+        return s1==s2;
     }
 };
 auto speedup = cin.tie(NULL) -> sync_with_stdio(false);
