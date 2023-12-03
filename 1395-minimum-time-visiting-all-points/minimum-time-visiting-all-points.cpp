@@ -1,19 +1,20 @@
 class Solution {
 public:
-    int toTime(vector<int>& from, vector<int>& to) {
-        int xDiff = abs(from[0] - to[0]);
-        int yDiff = abs(from[1] - to[1]);
-        
-        return max(xDiff, yDiff);
-    }
-
     int minTimeToVisitAllPoints(vector<vector<int>>& points) {
-        int time = 0;
-
-        for (int i = 1; i < points.size(); i++) {
-            time += toTime(points[i - 1], points[i]);
+        int i = 1;
+        int n = points.size();
+        int res = 0;
+        for(i=1;i<n;i++){
+            int y2 = points[i][1];
+            int y1 = points[i-1][1];
+            int x2 = points[i][0];
+            int x1 = points[i-1][0];
+            int difY = abs(y2-y1);
+            int difX = abs(x2-x1);
+            res += max(difY,difX);
         }
+        
 
-        return time;
+        return res;
     }
 };
