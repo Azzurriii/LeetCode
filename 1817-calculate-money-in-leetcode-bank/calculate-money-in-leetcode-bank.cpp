@@ -1,15 +1,15 @@
 class Solution {
 public:
     int totalMoney(int n) {
-        int fullWeek = n / 7;
-        int first = 28;
-        int last = 28 + (fullWeek - 1) * 7;
-        int moneyOfFullWeek = fullWeek * (first + last) / 2;
+        int numOfFullWeek = n / 7;
+        int firstFullWeek = 28;
+        int lastFullWeek = 28 + (numOfFullWeek - 1) * 7;
+        int moneyOfFullWeek = numOfFullWeek * (firstFullWeek + lastFullWeek) / 2;
         
-        int monday = 1 + fullWeek;
+        int monday = 1 + numOfFullWeek;
         int finalWeek = 0;
-        for (int day = 0; day < n % 7; day++) {
-            finalWeek += monday + day;
+        for (int dayLeft = 0; dayLeft < n % 7; dayLeft++) {
+            finalWeek += monday + dayLeft;
         }
         
         return moneyOfFullWeek + finalWeek;
