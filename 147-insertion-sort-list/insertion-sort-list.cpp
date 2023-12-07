@@ -29,3 +29,4 @@ public:
         return dummy->next;
     }
 };
+auto speedup = cin.tie(NULL) -> sync_with_stdio(false);
