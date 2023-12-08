@@ -1,26 +1,16 @@
 class Solution {
 public:
     string tree2str(TreeNode* root) {
-        string str = "";
-         check(root, str);
-         return str;
+        if(root == nullptr)
+            return "";
+        string res = to_string(root->val);
+        if(root->left)
+          res += "(" + tree2str(root->left) + ")";
+        if(root->right){
+          if(!root->left)
+            res += "()";
+          res += "(" + tree2str(root->right) + ")";
+        }   
+        return res;
     }
-    void check(TreeNode* root, string &str) {
-        if (root == NULL) {
-            return;
-        }
-        str += to_string(root->val);
-        if (root->left || root->right) {
-            str += '(';
-            check(root->left, str);
-            str += ')';
-        }
-        if (root->right) {
-            str += '(';
-            check(root->right, str);
-            str += ')';
-        }
-        
-    }
-    
 };
