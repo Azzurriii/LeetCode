@@ -17,7 +17,7 @@
 //     }
 // };
 
-//#Daily 9/12: No Recursion, Iterative.
+//#Daily 9/12: No Recursion, Iteratively using stack.
 class Solution{
 public:
     vector<int> inorderTraversal(TreeNode* root){
