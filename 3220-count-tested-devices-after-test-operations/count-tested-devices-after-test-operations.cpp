@@ -13,3 +13,5 @@ public:
         return ans;
     }
 };
+
+auto speedup = cin.tie(NULL) -> sync_with_stdio(false);
