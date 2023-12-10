@@ -16,3 +16,5 @@ public:
         return testedDevices;
     }
 };
+
+auto speedup = cin.tie(NULL) -> sync_with_stdio(false);
