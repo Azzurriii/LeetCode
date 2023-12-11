@@ -12,10 +12,9 @@ public:
         
         // return 0;
         int l = arr.size();
-        int p = l / 4 + (l % 4 != 0);
+        int p = l >> 2;
         for (int i = 0; i < l; i += p) {
-            int res = upper_bound(arr.begin(), arr.end(), arr[i]) - lower_bound(arr.begin(), arr.end(), arr[i]);
-            if (res > l / 4) {
+            if (upper_bound(arr.begin(), arr.end(), arr[i]) - lower_bound(arr.begin(), arr.end(), arr[i]) > l >> 2) {
                 return arr[i];
             }
         }
