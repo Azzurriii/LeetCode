@@ -21,3 +21,4 @@ public:
         return 0;
     }
 };
+auto speedup = cin.tie(nullptr)->sync_with_stdio(false);
