@@ -1,15 +1,22 @@
-class Solution {
+class Solution{
 public:
-    //Sliding windows
     int findSpecialInteger(vector<int>& arr) {
-        int windowSize = arr.size() / 4;
+        int n = arr.size();
+        int targetFrequency = n >> 2;
 
-        for (int i = 0; i < arr.size() - windowSize; ++i) {
-            if (arr[i] == arr[i + windowSize]) {
-                return arr[i];
+        for (int i = 0; i < n; i += targetFrequency) {
+            int currentElement = arr[i];
+
+            auto lower = lower_bound(arr.begin(), arr.end(), currentElement);
+            auto upper = upper_bound(arr.begin(), arr.end(), currentElement);
+
+            int frequency = upper - lower;
+
+            if (frequency > targetFrequency) {
+                return currentElement;
             }
         }
-        
+
         return 0;
     }
 };
