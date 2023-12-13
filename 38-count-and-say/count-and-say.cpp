@@ -1,7 +1,6 @@
 class Solution {
 public:
     string countAndSay(int n) {
-        ios_base::sync_with_stdio(0), cin.tie(0), cout.tie(0);
         if (n == 1)
         return "1";
         
@@ -11,9 +10,7 @@ public:
         for (int i = 0; i < s.length(); i++)
         {
             if (s[i] == s[i + 1])
-            {
                 count++;
-            }
             else
             {
                 ans += to_string(count) + s[i];
