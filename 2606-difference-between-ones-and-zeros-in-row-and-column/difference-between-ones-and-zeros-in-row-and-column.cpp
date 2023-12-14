@@ -18,7 +18,7 @@ public:
         vector<vector<int>> ans(m, vector<int>(n));
         for (int i = 0; i < m; ++i)
             for (int j = 0; j < n; ++j)
-                ans[i][j] = 2 * onesRow[i] + 2 * onesCol[j] - ( m + n );
+                ans[i][j] = onesRow[i] + onesCol[j] - (n - onesRow[i]) - (m - onesCol[j]);
 
         return ans;
     }
