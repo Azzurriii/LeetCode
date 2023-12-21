@@ -12,5 +12,6 @@ public:
         ans = max(ans, x[i] - x[i - 1]);
     }
     return ans;
-} 
+    } 
 };
+auto speedup = cin.tie(NULL) -> sync_with_stdio(false);
