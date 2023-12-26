@@ -2,8 +2,7 @@ class Solution {
 public:
     int numRollsToTarget(int n, int k, int target) {
         int mod = 1e9 + 7;
-        vector<vector<int>>dp;
-        dp.resize(n + 1, vector<int>(target + 1, 0));
+        vector<vector<int>>dp(n + 1, vector<int>(target + 1, 0));
         for (int j = 1; j <= k && j <= target; j++) {
             dp[0][j] = 1;
         }
