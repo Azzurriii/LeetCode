@@ -13,3 +13,4 @@ public:
         return time;
     }
 };
+auto speedup = cin.tie(nullptr) -> sync_with_stdio(false);
