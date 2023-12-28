@@ -4,7 +4,7 @@ public:
         int n = s.length();
         vector<vector<int>> dp(n + 1, vector<int>(k + 1, INT_MAX / 2));
 
-        dp[0][0] = 0;  // Base case
+        dp[0][0] = 0;
 
         for (int i = 1; i <= n; i++) {
             for (int j = 0; j <= k; j++) {
