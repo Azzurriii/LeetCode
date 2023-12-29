@@ -27,3 +27,4 @@ public:
         return dp[d-1][n-1];
     }
 };
+auto speedup = cin.tie(NULL) -> sync_with_stdio(false);
