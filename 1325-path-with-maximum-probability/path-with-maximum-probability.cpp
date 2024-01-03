@@ -1,36 +1,28 @@
 class Solution {
 public:
-    double Dijkstra(vector<pair<double,int>>adj[],int n,int u,int v){
-        vector<double>dis(n+100,DBL_MIN);
-        vector<bool>visited(n+100,false);
-        dis[u]=1.0;
-        priority_queue<pair<double,int>>pq;
-        pq.push({1.0,u});
+    double maxProbability(int n, vector<vector<int>>& edges, vector<double>& succProb, int start_node, int end_node){
+        vector<vector<pair<int, double>>> adj(n);
+        for(int i = 0; i < edges.size(); i++){
+            adj[edges[i][0]].push_back({edges[i][1], succProb[i]});
+            adj[edges[i][1]].push_back({edges[i][0], succProb[i]});
+        }
+        vector<double> prob(n, 0);
+        prob[start_node] = 1;
+        priority_queue<pair<double, int>> pq;
+        pq.push({1, start_node});
         while(!pq.empty()){
-            pair<double,int>top=pq.top();
+            pair<double, int> tmp = pq.top();
             pq.pop();
-            int dinh=top.second;
-            if(!visited[dinh]){
-                visited[dinh]=true;
-                for(auto x:adj[dinh]){
-                    int dinhke=x.second;
-                    double w=x.first;
-                    if(dis[dinhke] < dis[dinh]*w){
-                        dis[dinhke]=dis[dinh]*w;
-                        pq.push({dis[dinhke],dinhke});
-                    }
+            int u = tmp.second;
+            for(auto neighbor: adj[u]){
+                int v = neighbor.first;
+                double weight = neighbor.second;
+                if(prob[v] < prob[u] * weight){
+                    prob[v] = prob[u] * weight;
+                    pq.push({prob[v], v});
                 }
             }
         }
-        return dis[v];
-    }
-    double maxProbability(int n, vector<vector<int>>& edges, vector<double>& succProb, int start_node, int end_node) {
-        vector<pair<double,int>>adj[n];
-        for(int i=0;i<edges.size();i++){
-            adj[edges[i][0]].push_back({succProb[i],edges[i][1]});
-            adj[edges[i][1]].push_back({succProb[i],edges[i][0]});
-
-        }
-        return Dijkstra(adj,n,start_node,end_node);
+        return prob[end_node];
     }
 };
