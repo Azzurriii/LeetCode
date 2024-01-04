@@ -3,13 +3,13 @@ class Solution {
 public:
     int minOperations(vector<int>& nums) {
         unordered_map<int,int>mp;
-        for(auto a: nums){
-            mp[a]++;
+        for(auto it: nums){
+            mp[it]++;
         }
 
         int count=0;
-        for(auto a: mp){
-            int t = a.second;
+        for(auto it: mp){
+            int t = it.second;
             if(t == 1)
                 return -1;
             count += t/3;
@@ -20,3 +20,4 @@ public:
     }
 };
 
+auto speedup = cin.tie(NULL) -> sync_with_stdio(false);
