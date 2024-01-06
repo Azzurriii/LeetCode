@@ -20,4 +20,3 @@ public:
         return false;
     }
 };
-auto speedup = cin.tie(NULL) -> sync_with_stdio(false);
