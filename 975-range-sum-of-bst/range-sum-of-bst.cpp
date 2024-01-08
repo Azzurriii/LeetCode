@@ -10,3 +10,4 @@ public:
         return root->val + rangeSumBST(root->left, low, high) + rangeSumBST(root->right, low, high);
     }
 };
+auto speedup = cin.tie(NULL) -> sync_with_stdio(false);
