@@ -1,15 +1,9 @@
 class Solution {
 public:
     int rangeSumBST(TreeNode* root, int low, int high) {
-        int res = 0;
-        if(!root) return res;
-        else{
-            if(root->val >= low && root->val <= high){
-                res += root->val;
-            }
-            res += rangeSumBST(root->left, low, high) + rangeSumBST(root->right, low, high);
-            return res;
-        }
+        if (!root) return 0;
+        if (root->val < low) return rangeSumBST(root->right, low, high);
+        if (root->val > high) return rangeSumBST(root->left, low, high);
+        return root->val + rangeSumBST(root->left, low, high) + rangeSumBST(root->right, low, high);
     }
 };
-auto speedup = cin.tie(NULL)->sync_with_stdio(false);
