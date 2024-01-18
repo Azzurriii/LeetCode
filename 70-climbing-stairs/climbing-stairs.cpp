@@ -1,7 +1,7 @@
 class Solution {
 public:
     int climbStairs(int n) {
-        long fibo[46] = { 1,
+        int fibo[46] = { 1,
                          1,
                          2,
                          3,
@@ -48,6 +48,6 @@ public:
                          1134903170,
                          1836311903
                         };
-        return (int)fibo[n];
+        return fibo[n];
     }
 };
