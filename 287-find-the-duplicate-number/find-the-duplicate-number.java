@@ -7,6 +7,7 @@ class Solution {
             }
             nums[idx] *= -1;
         }
+        System.gc();
         return -1;
     }
 }
