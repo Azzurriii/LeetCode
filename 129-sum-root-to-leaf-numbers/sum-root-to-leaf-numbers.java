@@ -1,31 +1,17 @@
-/**
- * Definition for a binary tree node.
- * public class TreeNode {
- *     int val;
- *     TreeNode left;
- *     TreeNode right;
- *     TreeNode() {}
- *     TreeNode(int val) { this.val = val; }
- *     TreeNode(int val, TreeNode left, TreeNode right) {
- *         this.val = val;
- *         this.left = left;
- *         this.right = right;
- *     }
- * }
- */
 class Solution {
-    private int dfs(TreeNode root, int sum){
-        if(null == root)
+    private int dfs(TreeNode root, String pathSum){
+        if(root == null)
             return 0;
 
-        sum = sum * 10 + root.val;
+        pathSum += String.valueOf(root.val);
 
-        if(null == root.left && null == root.right)
-            return sum;
+        if(root.left == null && root.right == null)
+            return Integer.parseInt(pathSum);
             
-        return dfs(root.left, sum) + dfs(root.right, sum);
+        return dfs(root.left, pathSum) + dfs(root.right, pathSum);
     }
+    
     public int sumNumbers(TreeNode root) {
-        return dfs(root, 0);
+        return dfs(root, "");
     }
 }
