@@ -1,12 +1,11 @@
 func isPalindrome(x int) bool {
-    if x < 0 {
+    if x < 0 || (x != 0 && x%10 == 0) {
 		return false
 	}
-	reversed := 0
-	original := x
-	for original > 0 {
-		reversed = reversed*10 + original%10
-		original /= 10
+	halfReversed := 0
+	for x > halfReversed {
+		halfReversed = halfReversed*10 + x%10
+		x /= 10
 	}
-	return reversed == x
+	return x == halfReversed || x == halfReversed/10
 }
